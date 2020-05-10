@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -e
+
+echo "== Running Lambify Script =="
+
+PROJECT_FOLDER="{{cookiecutter.project_name}}"
+
+# Many of these bin scripts facilitate usage of Docker. Take note
+# of the convention where scripts with a leading _ are run inside
+# the container. Exampele: the ./bin/test files calls ./bin/_test
+# This means if you wanted to go platform native, sans-Docker, you
+# can use the _ scripts directly. Details:
+#
+# - Project bootstrap & setup conventions.
+# - Build and deploy scripts using SAM
+# - Simple `./bin/server` and `./bin/test` wrappers.
+# - Use `./bin/run` to run any ad-hoc command.
+# - Use `./bin/credentials` to create encrypted secrets.
+#
+cp -r ./lambify/bin/* "${PROJECT_FOLDER}/bin"
+
+# Create a simple staging env file derived from prod so
+# you can deploy your stack for QA.
+#
+cp ./lambify/config/environments/staging.rb "${PROJECT_FOLDER}/config/environments"
+
+# Add a getting started .env.development Dotenv file. This has one
+# env, AWS_PROFILE, which is set to "default". Remember, your over
+# rides will go in .env.development.local. Also remember to add your
+# own .env.test as needed.
+#
+cp ./lambify/.env.development "${PROJECT_FOLDER}/.env.development"
+
+# The `app.rb` file is your entrypoint and handler.
+#
+cp ./lambify/app.rb "${PROJECT_FOLDER}/app.rb"
+
+# These docker files use the same containers as AWS SAM's
+# so that you can develop & deploy using a similiar environment
+# as the Lambda runtime itself. Remember, these containers are
+# are the "build" variants which contain more tools than the
+# leaner runtime. We also install Node & Yarn on this Ruby
+# container too since Rails development loves JavaScript.
+#
+cp ./lambify/Dockerfile "${PROJECT_FOLDER}/Dockerfile"
+cp ./lambify/docker-compose.yml "${PROJECT_FOLDER}/docker-compose.yml"
+
+# We replace the Gemfile in whole for a few reasons:
+#
+# - Remove `ruby` declaration. Helps minor udpates
+# - Add Lamby gem along with Dotenv.
+# - Creates an `:assets` group. Avoids loading these in prod.
+# - Add lograge gem to reduce CloudWatch noise/costs.
+#
+cp ./lambify/Gemfile "$PROJECT_FOLDER/Gemfile"
+
+# The `template.yaml` file is AWS SAM version of CloudFormation
+# that describes how to package and run your Lambda.
+#
+cp ./lambify/template.yaml "$PROJECT_FOLDER/template.yaml"

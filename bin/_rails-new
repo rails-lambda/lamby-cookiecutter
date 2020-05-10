@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -e
+
+VERSION="6.0.3"
+PATH=/var/runtime/bin/:$PATH
+PROJECT_FOLDER="{{cookiecutter.project_name}}"
+
+echo "== Installing Rails $VERSION =="
+
+rm -rf ./rename_me
+rm -rf "$PROJECT_FOLDER"
+
+gem install rails -v $VERSION --no-document
+
+rails _"$VERSION"_ new rename_me \
+  --skip-action-mailer \
+  --skip-action-mailbox \
+  --skip-action-text \
+  --skip-active-record \
+  --skip-active-storage \
+  --skip-puma \
+  --skip-action-cable \
+  --skip-spring \
+  --skip-listen \
+  --skip-bootsnap
+
+mv "rename_me" "$PROJECT_FOLDER"

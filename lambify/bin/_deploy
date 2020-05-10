@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+
+CLOUDFORMATION_BUCKET=$(cat .bucket-name)
+
+./bin/build
+
+echo "== ☑️ SAM package..."
+sam package \
+  --region ${AWS_DEFAULT_REGION} \
+  --template-file ./.aws-sam/build/template.yaml \
+  --output-template-file ./.aws-sam/build/packaged.yaml \
+  --s3-bucket "${CLOUDFORMATION_BUCKET}" \
+  --s3-prefix "{% include "_cctmp/dash_name.txt" %}-${RAILS_ENV}"
+echo "== ✅ SAM package =="
+
+echo "== ☑️ SAM deploy..."
+sam deploy \
+  --region ${AWS_DEFAULT_REGION} \
+  --template-file ./.aws-sam/build/packaged.yaml \
+  --stack-name "{% include "_cctmp/dash_name.txt" %}-${RAILS_ENV}" \
+  --capabilities "CAPABILITY_IAM" \
+  --parameter-overrides \
+    RailsEnv="${RAILS_ENV}"
+echo "== ✅ SAM deploy =="

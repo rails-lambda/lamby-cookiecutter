@@ -1,0 +1,7 @@
+
+# Lamby
+/.aws-sam
+.env.*
+!.env.development
+!.env.test
+/vendor/bundle

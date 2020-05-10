@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+export RAILS_ENV=${RAILS_ENV:=production}
+
+docker-compose run \
+   -e AWS_PROFILE \
+   cicd \
+   ./bin/_deploy

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+SAM_BUCKET_NAME_FILE=".bucket-name"
+
+if [ ! -f $SAM_BUCKET_NAME_FILE ]; then
+  echo '== Creating SAM deployment bucket =='
+  rand=$(ruby -r 'securerandom' -e 'puts(SecureRandom.hex[1,10])')
+  name="lamby-{% include "_cctmp/dash_name.txt" %}-${rand}"
+  echo -n "$name" > "$SAM_BUCKET_NAME_FILE"
+  aws s3 mb "s3://${name}"
+else
+  echo '== Using SAM deployment bucket =='
+  name=$(cat $SAM_BUCKET_NAME_FILE)
+  echo $name
+fi

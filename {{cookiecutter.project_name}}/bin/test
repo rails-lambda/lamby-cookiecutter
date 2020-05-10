@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+export RAILS_ENV="test"
+
+docker-compose run \
+  cicd \
+  ./bin/_test

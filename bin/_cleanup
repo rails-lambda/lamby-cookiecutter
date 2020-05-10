@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+echo "== Cleaning Up Project =="
+
+PROJECT_FOLDER="{{cookiecutter.project_name}}"
+cd $PROJECT_FOLDER
+
+rm -rf ./.git \
+       ./config/master.key \
+       ./config/credentials.yml.enc \
+       ./Gemfile.lock \
+       ./node_modules \
+       ./log/development.log \
+       yarn.lock
