@@ -13,27 +13,29 @@ Parameters:
 
 Resources:
 
-  {% include "_cctmp/class_name.txt" %}Lambda:
+  RailsLambda:
     Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: makefile
     Properties:
+      AutoPublishAlias: live
       CodeUri: .
-      Handler: app.handler
-      Runtime: ruby2.7
-      MemorySize: 512
-      Timeout: 30
       Environment:
         Variables:
           RAILS_ENV: !Ref RailsEnv
           RUBYOPT: -W0
-      FunctionName: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
       Events:
-        {% include "_cctmp/class_name.txt" %}HttpApiProxy:
+        HttpApiProxy:
           Type: HttpApi
           Properties:
-            ApiId: !Ref {% include "_cctmp/class_name.txt" %}HttpApi
-      AutoPublishAlias: live
+            ApiId: !Ref RailsHttpApi
+      FunctionName: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
+      Handler: app.handler
+      MemorySize: 512
+      Runtime: ruby2.7
+      Timeout: 30
 
-  {% include "_cctmp/class_name.txt" %}HttpApi:
+  RailsHttpApi:
     Type: AWS::Serverless::HttpApi
     Properties:
       StageName: !Ref RailsEnv
@@ -42,8 +44,8 @@ Outputs:
 
   {% include "_cctmp/class_name.txt" %}HttpApiUrl:
     Description: Lambda Invoke URL
-    Value: !Sub "https://${{ "{" }}{% include "_cctmp/class_name.txt" %}HttpApi}.execute-api.${AWS::Region}.amazonaws.com/${RailsEnv}/"
+    Value: !Sub https://${RailsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${RailsEnv}/
 
   {% include "_cctmp/class_name.txt" %}LambdaResourceArn:
     Description: Lambda ARN
-    Value: !GetAtt {% include "_cctmp/class_name.txt" %}Lambda.Arn
+    Value: RailsLambda.Arn

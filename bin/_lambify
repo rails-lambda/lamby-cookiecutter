@@ -35,6 +35,13 @@ cp ./lambify/.env.development "${PROJECT_FOLDER}/.env.development"
 #
 cp ./lambify/app.rb "${PROJECT_FOLDER}/app.rb"
 
+# SAM provides Makefile support (https://git.io/JJB9N) and we take
+# advantage of that for a few reasons. First, it helps us maintain
+# a vendor/bundle-dev distrinction at build time. Good for CI/CD
+# caches. It also allows us to share the final build code with
+# a jobs lambda for ActiveJob support.
+cp ./lambify/Makefile "${PROJECT_FOLDER}/Makefile"
+
 # These docker files use the same containers as AWS SAM's
 # so that you can develop & deploy using a similiar environment
 # as the Lambda runtime itself. Remember, these containers are

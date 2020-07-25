@@ -4,4 +4,4 @@
 .env.*
 !.env.development
 !.env.test
-/vendor/bundle
+/vendor/bundle-dev

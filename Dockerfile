@@ -7,4 +7,7 @@ RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash - && \
     rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg && \
     yum install -y yarn
 
+# For ActiveRecord Tests
+RUN yum install -y sqlite-devel
+
 WORKDIR /var/task

@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 set -e
 
-if [ -z ${RAILS_ENV+x} ]; then
-  echo "Missing RAILS_ENV env variable!"
-  exit 126
-fi
+ARTIFACTS_DIR=$1
+cd $ARTIFACTS_DIR
 
-echo "== SAM build =="
-rm -rf ./.bundle ./vendor/bundle
-sam build
+echo '== Cleaning dev dependencies =='
+rm -rf ./.bundle \
+       ./vendor/bundle-dev
+
+echo '== Bundle for deployment =='
+bundle config --local GITHUB__COM "$(git config github.token):x-oauth-basic"
+bundle config --local deployment true
+bundle config --local without 'development test'
+bundle config --local path './vendor/bundle'
+bundle install --quiet --jobs 4
 
 echo "== Environments & Configuration =="
-pushd ./.aws-sam/build/{% include "_cctmp/class_name.txt" %}Lambda/
 RAILS_MASTER_KEY=$(aws ssm get-parameter \
   --name "/{% include "_cctmp/file_name.txt" %}/RAILS_MASTER_KEY" \
   --with-decryption \
@@ -19,10 +23,8 @@ RAILS_MASTER_KEY=$(aws ssm get-parameter \
   --output text 2> /dev/null | echo "$(</dev/stdin)"
 )
 echo "RAILS_MASTER_KEY=$RAILS_MASTER_KEY" > ".env.$RAILS_ENV"
-popd
 
 echo "== Asset Hosts & Precompiling =="
-pushd ./.aws-sam/build/{% include "_cctmp/class_name.txt" %}Lambda/
 NODE_ENV='production' \
   RAILS_GROUPS=assets \
   LAMBY_BUILD=1 \
@@ -32,10 +34,8 @@ rm -rf ./app/assets/images \
        ./app/assets/stylesheets \
        ./app/javascript \
        ./vendor/assets
-popd
 
 echo "== Clean un-needed artifacts =="
-pushd ./.aws-sam/build/{% include "_cctmp/class_name.txt" %}Lambda/
 rm -rf \
   .browserslistrc \
   .bucket-name \
@@ -74,5 +74,4 @@ rm -rf \
   ./gems/websocket-extensions-* \
   ./gems/sass* \
   ./gems/uglifier-*
-popd
 popd

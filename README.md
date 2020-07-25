@@ -8,7 +8,7 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 * Rails v6.x on Ruby 2.7 runtime.
 * Integrated JavaScript development.
 * Compiles CSS/JS assets with LibSass & Webpacker.
-* No ActiveRecord persistence. MySQL/PostgreSQL coming soon!
+* No ActiveRecord persistence. To add, read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
 * Consider using DynamoDB via the [Aws::Record](https://github.com/aws/aws-sdk-ruby-record) gem.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
