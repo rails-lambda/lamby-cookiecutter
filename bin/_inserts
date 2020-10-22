@@ -7,10 +7,12 @@ PROJECT_FOLDER="{{cookiecutter.project_name}}"
 cd $PROJECT_FOLDER
 
 insert_file_over_pattern () {
-  dline=$(sed -n "/${2}/=" $1)
-  rline=$(expr $dline - 1)
-  sed --in-place -e "${dline}d" $1
-  sed --in-place "${rline}r ../inserts/${1}" $1
+  if [[ -f "$1" ]]; then
+    dline=$(sed -n "/${2}/=" $1)
+    rline=$(expr $dline - 1)
+    sed --in-place -e "${dline}d" $1
+    sed --in-place "${rline}r ../inserts/${1}" $1
+  fi
 }
 
 # Replace `RenameMe` module namespace with cookiecutter's name.
@@ -33,6 +35,7 @@ insert_file_over_pattern 'config/application.rb' 'Bundler.require'
 # One important part of this is exercising the JS/CSS assets.
 #
 cp ../inserts/config/routes.rb config/routes.rb
+mkdir -p app/views/layouts
 cp ../inserts/app/views/layouts/application.html.erb app/views/layouts/application.html.erb
 mkdir -p app/views/application
 cp ../inserts/app/views/application/index.html.erb app/views/application/index.html.erb
