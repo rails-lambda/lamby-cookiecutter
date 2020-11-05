@@ -9,7 +9,6 @@ rm -rf ./.bundle \
        ./vendor/bundle-dev
 
 echo '== Bundle for deployment =='
-bundle config --local GITHUB__COM "$(git config github.token):x-oauth-basic"
 bundle config --local deployment true
 bundle config --local without 'development test'
 bundle config --local path './vendor/bundle'

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+if [[ "$OSTYPE" == *"darwin"* ]]; then
+  export SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
+fi
+
 docker-compose run \
    cicd \
    ./bin/_setup

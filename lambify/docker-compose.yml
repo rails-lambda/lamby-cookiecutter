@@ -8,7 +8,9 @@ services:
       - SAM_CLI_TELEMETRY=0
       - AWS_PROFILE=${AWS_PROFILE-default}
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION-us-east-1}
+      - SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
     volumes:
+      - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
       - ~/.aws:/root/.aws:delegated
-      - ~/.gitconfig:/root/.gitconfig:ro
+      - ~/.ssh/known_hosts:/root/.ssh/known_hosts
       - .:/var/task:delegated
