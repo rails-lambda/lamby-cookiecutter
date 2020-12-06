@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION="6.0.3"
+VERSION="6.0.3.4"
 PATH=/var/runtime/bin/:$PATH
 PROJECT_FOLDER="{{cookiecutter.project_name}}"
 

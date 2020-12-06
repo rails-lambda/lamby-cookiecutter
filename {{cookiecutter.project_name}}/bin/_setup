@@ -4,10 +4,4 @@ set -e
 echo '== Installing dependencies =='
 bundle config set --local path 'vendor/bundle-dev'
 bundle install
-./bin/yarn
-
-echo '== Setup encrtyped credentials =='
-./bin/_setup-credentials
-
-echo '== Cleaning directories =='
-./bin/rails log:clear tmp:clear
+# ./bin/yarn

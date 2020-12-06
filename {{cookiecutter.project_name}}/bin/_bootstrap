@@ -14,3 +14,11 @@ else
   name=$(cat $SAM_BUCKET_NAME_FILE)
   echo $name
 fi
+
+echo '== Creating ECR repository, if needed. =='
+echo '== Ignore any RepositoryAlreadyExistsException errors =='
+aws ecr create-repository \
+  --repository-name myorg/{% include "_cctmp/dash_name.txt" %} \
+  --image-tag-mutability MUTABLE \
+  --image-scanning-configuration scanOnPush=true \
+  --region "$AWS_DEFAULT_REGION" || true

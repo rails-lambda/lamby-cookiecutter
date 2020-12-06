@@ -34,6 +34,7 @@ yarn-debug.log*
 
 # Lamby
 /.aws-sam
+/.lamby
 .env.*
 !.env.development
 !.env.test

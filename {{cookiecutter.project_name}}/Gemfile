@@ -10,7 +10,6 @@ gem 'webpacker'
 
 group :assets do
   gem 'sass-rails'
-  gem 'uglifier', require: false
 end
 
 group :development do
@@ -30,5 +29,3 @@ end
 group :production do
   gem 'lograge'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

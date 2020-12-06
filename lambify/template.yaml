@@ -16,23 +16,21 @@ Resources:
   RailsLambda:
     Type: AWS::Serverless::Function
     Metadata:
-      BuildMethod: makefile
+      DockerTag: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
+      DockerContext: ./.lamby/RailsLambda
+      Dockerfile: Dockerfile
     Properties:
-      AutoPublishAlias: live
-      CodeUri: .
       Environment:
         Variables:
           RAILS_ENV: !Ref RailsEnv
-          RUBYOPT: -W0
       Events:
         HttpApiProxy:
           Type: HttpApi
           Properties:
             ApiId: !Ref RailsHttpApi
       FunctionName: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
-      Handler: app.handler
       MemorySize: 512
-      Runtime: ruby2.7
+      PackageType: Image
       Timeout: 30
 
   RailsHttpApi:

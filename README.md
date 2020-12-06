@@ -1,4 +1,3 @@
-
 # Lamby Cookiecutter
 
 <a href="https://lamby.custominktech.com"><img src="https://user-images.githubusercontent.com/2381/59363668-89edeb80-8d03-11e9-9985-2ce14361b7e3.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="300" /></a>
@@ -8,8 +7,7 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 * Rails v6.x on Ruby 2.7 runtime.
 * Integrated JavaScript development.
 * Compiles CSS/JS assets with LibSass & Webpacker.
-* No ActiveRecord persistence. To add, read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
-* Consider using DynamoDB via the [Aws::Record](https://github.com/aws/aws-sdk-ruby-record) gem.
+* No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
 
@@ -19,12 +17,18 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 
 ### SAM Init
 
+If you have the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) already installed, use the first command. If not, use the second Docker based command. 
+
+```shell
+$ sam init --location "gh:customink/lamby-cookiecutter"
+```
+
 ```shell
 $ docker run \
   --rm \
   --interactive \
   --volume "${PWD}:/var/task:delegated" \
-  lambci/lambda:build-ruby2.7 \
+  amazon/aws-sam-cli-build-image-ruby2.7 \
   sam init --location "gh:customink/lamby-cookiecutter"
 ```
 

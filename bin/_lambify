@@ -15,9 +15,14 @@ PROJECT_FOLDER="{{cookiecutter.project_name}}"
 # - Build and deploy scripts using SAM
 # - Simple `./bin/server` and `./bin/test` wrappers.
 # - Use `./bin/run` to run any ad-hoc command.
-# - Use `./bin/credentials` to create encrypted secrets.
 #
 cp -r ./lambify/bin/* "${PROJECT_FOLDER}/bin"
+
+# It is far easier to get started with basic a `SECRET_KEY_BASE`
+# environment variable vs encrypted credentials. The value here is 
+# garbage and should be changed prior to real usage.
+# 
+cp ./lambify/config/initializers/secret_key_base.rb "${PROJECT_FOLDER}/config/initializers"
 
 # Create a simple staging env file derived from prod so
 # you can deploy your stack for QA.
@@ -42,14 +47,16 @@ cp ./lambify/app.rb "${PROJECT_FOLDER}/app.rb"
 # a jobs lambda for ActiveJob support.
 cp ./lambify/Makefile "${PROJECT_FOLDER}/Makefile"
 
-# These docker files use the same containers as AWS SAM's
-# so that you can develop & deploy using a similiar environment
-# as the Lambda runtime itself. Remember, these containers are
-# are the "build" variants which contain more tools than the
-# leaner runtime. We also install Node & Yarn on this Ruby
-# container too since Rails development loves JavaScript.
-#
+# These Docker files setup both a local development & build 
+# environment using docker-compose. The dev/build file is named
+# `Dockerfile-build` and this is what compose uses. The main
+# `Dockerfile` is used to build your production image. Keeping your
+# image small and free of unneeded files is an important part
+# of deploying containers. As such, this main Dockerfile does 
+# a simple copy of your built application into it.
+# 
 cp ./lambify/Dockerfile "${PROJECT_FOLDER}/Dockerfile"
+cp ./lambify/Dockerfile-build "${PROJECT_FOLDER}/Dockerfile-build"
 cp ./lambify/docker-compose.yml "${PROJECT_FOLDER}/docker-compose.yml"
 
 # We replace the Gemfile in whole for a few reasons:

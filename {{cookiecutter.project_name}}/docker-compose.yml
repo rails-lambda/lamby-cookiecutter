@@ -1,7 +1,9 @@
 version: '3.7'
 services:
   cicd:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-build
     environment:
       - RUBYOPT=-W0
       - RAILS_ENV=${RAILS_ENV-development}
@@ -14,3 +16,4 @@ services:
       - ~/.aws:/root/.aws:delegated
       - ~/.ssh/known_hosts:/root/.ssh/known_hosts
       - .:/var/task:delegated
+      - /var/run/docker.sock:/var/run/docker.sock
