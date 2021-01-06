@@ -97,7 +97,7 @@ Rails.application.configure do
   # ----------
   logger = ActiveSupport::Logger.new(STDOUT)
   logger.formatter = ActiveSupport::Logger::SimpleFormatter.new
-  config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  config.logger    = logger
   config.public_file_server.headers = {
     'Cache-Control' => "public, max-age=#{30.days.seconds.to_i}",
     'X-Lamby-Base64' => '1'

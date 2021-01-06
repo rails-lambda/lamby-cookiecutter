@@ -11,7 +11,7 @@ IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/
 
 sam build \
   --parameter-overrides \
-  RailsEnv="${RAILS_ENV}"
+    RailsEnv="${RAILS_ENV}"
 
 echo "== SAM package..."
 sam package \

@@ -6,6 +6,6 @@ if [[ "$OSTYPE" == *"darwin"* ]]; then
 fi
 
 docker-compose run \
-   -e AWS_PROFILE \
-   cicd \
-   $@
+  -e AWS_PROFILE \
+  cicd \
+  $@

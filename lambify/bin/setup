@@ -6,5 +6,5 @@ if [[ "$OSTYPE" == *"darwin"* ]]; then
 fi
 
 docker-compose run \
-   cicd \
-   ./bin/_setup
+  cicd \
+  ./bin/_setup

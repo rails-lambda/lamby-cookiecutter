@@ -16,9 +16,9 @@ Resources:
   RailsLambda:
     Type: AWS::Serverless::Function
     Metadata:
-      DockerTag: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
       DockerContext: ./.lamby/RailsLambda
       Dockerfile: Dockerfile
+      DockerTag: web
     Properties:
       Environment:
         Variables:
