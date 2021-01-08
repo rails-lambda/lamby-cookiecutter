@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile-build
     environment:
-      - RUBYOPT=-W0
       - RAILS_ENV=${RAILS_ENV-development}
       - SAM_CLI_TELEMETRY=0
       - AWS_PROFILE=${AWS_PROFILE-default}

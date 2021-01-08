@@ -2,7 +2,5 @@ version: '3.7'
 services:
   build:
     build: .
-    environment:
-      - RUBYOPT=-W0
     volumes:
       - .:/var/task:delegated
