@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  cicd:
+  {% include "_cctmp/dash_name.txt" %}:
     build:
       context: .
       dockerfile: Dockerfile-build

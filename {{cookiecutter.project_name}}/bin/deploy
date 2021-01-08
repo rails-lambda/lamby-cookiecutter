@@ -5,5 +5,5 @@ export RAILS_ENV=${RAILS_ENV:=production}
 
 docker-compose run \
   -e AWS_PROFILE \
-  cicd \
+  {% include "_cctmp/dash_name.txt" %} \
   ./bin/_deploy

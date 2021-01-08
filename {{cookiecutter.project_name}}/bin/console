@@ -2,5 +2,5 @@
 set -e
 
 docker-compose run \
-  cicd \
+  {% include "_cctmp/dash_name.txt" %} \
   ./bin/rails console

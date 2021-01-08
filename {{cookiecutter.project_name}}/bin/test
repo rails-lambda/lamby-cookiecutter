@@ -4,5 +4,5 @@ set -e
 export RAILS_ENV="test"
 
 docker-compose run \
-  cicd \
+  {% include "_cctmp/dash_name.txt" %} \
   ./bin/_test
