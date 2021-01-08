@@ -12,7 +12,7 @@ services:
       - SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
     volumes:
       - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
-      - ~/.aws:/root/.aws:delegated
-      - ~/.ssh/known_hosts:/root/.ssh/known_hosts
-      - .:/var/task:delegated
+      - ${HOME}/.aws:/root/.aws:delegated
+      - ${HOME}/.ssh/known_hosts:/root/.ssh/known_hosts
+      - ${PWD}:/var/task:delegated
       - /var/run/docker.sock:/var/run/docker.sock
