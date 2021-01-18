@@ -3,7 +3,7 @@ FROM amazon/aws-sam-cli-build-image-ruby2.7
 # Ensure minimum required SAM version.
 RUN pip install awscli && \
     pip uninstall --yes aws-sam-cli && \
-    pip install aws-sam-cli==v1.13.2
+    pip install aws-sam-cli==v1.15.0
 
 # Node for JavaScript.
 RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash - && \
