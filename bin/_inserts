@@ -19,15 +19,6 @@ sed --in-place \
   's/RenameMe/{% include "_cctmp\/class_name.txt" %}/' \
   config/application.rb
 
-# Rails applications have long relied on JavaScript gems
-# to build assets and lazily keep those un-used gems on
-# our hosts even though we precompile. In order to avoid
-# a ExecJS runtime error on Lambda which has no hint of
-# JavaScript runtimes present for Ruby, we create an
-# `:assets` Bundler group like the days of old.
-#
-insert_file_over_pattern 'config/application.rb' 'Bundler.require'
-
 # Create a simple welcome to Lamby/Rails index page. To do
 # this we need a simple starter route, view layout and template.
 # One important part of this is exercising the JS/CSS assets.
