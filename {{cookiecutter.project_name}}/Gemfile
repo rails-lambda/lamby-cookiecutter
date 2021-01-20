@@ -7,10 +7,7 @@ gem 'dotenv-rails', require: false
 gem 'jbuilder'
 gem 'lamby', require: false
 gem 'webpacker'
-
-group :assets do
-  gem 'sass-rails'
-end
+gem 'sass-rails'
 
 group :development do
   gem 'web-console'

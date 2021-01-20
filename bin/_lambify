@@ -56,7 +56,6 @@ cp ./lambify/docker-compose.yml "${PROJECT_FOLDER}/docker-compose.yml"
 #
 # - Remove `ruby` declaration. Helps minor udpates
 # - Add Lamby gem along with Dotenv.
-# - Creates an `:assets` group. Avoids loading these in prod.
 # - Add lograge gem to reduce CloudWatch noise/costs.
 #
 cp ./lambify/Gemfile "$PROJECT_FOLDER/Gemfile"
