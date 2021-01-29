@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails', '~> 6.0.3'
 
-gem 'aws-skd-ssm'
+gem 'aws-sdk-ssm'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'jbuilder'
 gem 'lamby', require: false
