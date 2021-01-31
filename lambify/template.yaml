@@ -11,6 +11,13 @@ Parameters:
       - staging
       - production
 
+Globals:
+
+  Function:
+    Environment:
+      Variables:
+        RAILS_ENV: !Ref RailsEnv
+
 Resources:
 
   RailsLambda:
@@ -20,9 +27,6 @@ Resources:
       Dockerfile: Dockerfile
       DockerTag: web
     Properties:
-      Environment:
-        Variables:
-          RAILS_ENV: !Ref RailsEnv
       Events:
         HttpApiProxy:
           Type: HttpApi
