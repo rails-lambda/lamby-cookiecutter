@@ -33,9 +33,9 @@ Resources:
           Properties:
             ApiId: !Ref RailsHttpApi
       FunctionName: !Sub {% include "_cctmp/dash_name.txt" %}-${RailsEnv}
-      MemorySize: 512
+      MemorySize: 1792
       PackageType: Image
-      Timeout: 30
+      Timeout: 60
 
   RailsHttpApi:
     Type: AWS::Serverless::HttpApi
