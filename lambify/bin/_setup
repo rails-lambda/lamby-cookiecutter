@@ -2,6 +2,8 @@
 set -e
 
 echo '== Installing dependencies =='
+bundle lock --add-platform x86_64-linux
+bundle lock --add-platform ruby
 bundle config set --local path 'vendor/bundle-dev'
 bundle install
 ./bin/yarn
