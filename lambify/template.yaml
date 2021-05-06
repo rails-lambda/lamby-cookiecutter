@@ -26,6 +26,8 @@ Resources:
       DockerContext: ./.lamby/RailsLambda
       Dockerfile: Dockerfile
       DockerTag: web
+      DockerBuildArgs:
+        RAILS_ENV: !Ref RailsEnv
     Properties:
       Events:
         HttpApiProxy:
