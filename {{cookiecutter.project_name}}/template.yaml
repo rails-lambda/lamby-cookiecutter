@@ -29,6 +29,7 @@ Resources:
       DockerBuildArgs:
         RAILS_ENV: !Ref RailsEnv
     Properties:
+      AutoPublishAlias: live
       Events:
         HttpApiProxy:
           Type: HttpApi
