@@ -1,0 +1,19 @@
+name: Deploy
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Bootstrap
+        run: |
+          ./bin/bootstrap
+      - name: Configure AWS
+        with:
+          aws-access-key-id: ${{ secrets.DEPLOY_STAGE_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEPLOY_STAGE_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy
+        run: |
+          ./bin/deploy
