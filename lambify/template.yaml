@@ -37,7 +37,7 @@ Resources:
             ApiId: !Ref RailsHttpApi
       MemorySize: 1792
       PackageType: Image
-      Timeout: 60
+      Timeout: 30
 
   RailsHttpApi:
     Type: AWS::Serverless::HttpApi
