@@ -2,7 +2,7 @@ version: '3.7'
 services:
   {% include "_cctmp/dash_name.txt" %}:
     build:
-      context: .
+      context: '.'
       dockerfile: Dockerfile-build
     environment:
       - RAILS_ENV=${RAILS_ENV-development}
