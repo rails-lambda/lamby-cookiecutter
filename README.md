@@ -17,7 +17,7 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 
 ### SAM Init
 
-If you have the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) already installed, use the first command. If not, use the second Docker based command. 
+If you have the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) already installed, use the first command. If not, use the second Docker based command.
 
 ```shell
 $ sam init --location "gh:customink/lamby-cookiecutter"
@@ -27,7 +27,7 @@ $ sam init --location "gh:customink/lamby-cookiecutter"
 $ docker run \
   --rm \
   --interactive \
-  --volume "${PWD}:/var/task:delegated" \
+  --volume "${PWD}:/var/task" \
   amazon/aws-sam-cli-build-image-ruby2.7 \
   sam init --location "gh:customink/lamby-cookiecutter"
 ```

@@ -6,5 +6,6 @@ echo '== Building containers =='
 docker pull amazon/aws-sam-cli-build-image-ruby2.7
 docker-compose build
 
-docker-compose run {% include "_cctmp/dash_name.txt" %} \
+docker-compose run \
+  {% include "_cctmp/dash_name.txt" %} \
   ./bin/_bootstrap

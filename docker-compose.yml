@@ -3,4 +3,4 @@ services:
   build:
     build: '.'
     volumes:
-      - .:/var/task:delegated
+      - .:/var/task
