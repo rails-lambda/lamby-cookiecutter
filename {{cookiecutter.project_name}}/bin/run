@@ -2,6 +2,5 @@
 set -e
 
 docker-compose run \
-  -e AWS_PROFILE \
   {% include "_cctmp/dash_name.txt" %} \
   $@

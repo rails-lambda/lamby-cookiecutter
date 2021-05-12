@@ -29,10 +29,9 @@ cp ./lambify/config/initializers/secret_key_base.rb "${PROJECT_FOLDER}/config/in
 #
 cp ./lambify/config/environments/staging.rb "${PROJECT_FOLDER}/config/environments"
 
-# Add a getting started .env.development Dotenv file. This has one
-# env, AWS_PROFILE, which is set to "default". Remember, your over
-# rides will go in .env.development.local. Also remember to add your
-# own .env.test as needed.
+# Add a getting started .env.development Dotenv file to be shared. Remember,
+# your per-develooper over rides will go in .env.development.local. Also
+# remember to add your own .env.test as needed.
 #
 cp ./lambify/.env.development "${PROJECT_FOLDER}/.env.development"
 

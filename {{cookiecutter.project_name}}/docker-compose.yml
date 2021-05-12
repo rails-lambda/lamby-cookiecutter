@@ -4,13 +4,15 @@ services:
     build:
       context: '.'
       dockerfile: Dockerfile-build
+    entrypoint: ./bin/entrypoint
     environment:
       - RAILS_ENV=${RAILS_ENV-development}
       - SAM_CLI_TELEMETRY=0
       - AWS_PROFILE=${AWS_PROFILE-default}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION-us-east-1}
     volumes:
-      - ${HOME}/.aws:/root/.aws
-      - ${HOME}/.ssh/known_hosts:/root/.ssh/known_hosts
       - ${PWD}:/var/task
+      - ${HOME}/.aws:/root/.aws
       - /var/run/docker.sock:/var/run/docker.sock
