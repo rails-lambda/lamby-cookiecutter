@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
 CLOUDFORMATION_BUCKET=$(cat .bucket-name)

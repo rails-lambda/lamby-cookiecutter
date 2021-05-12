@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
 export RAILS_ENV=${RAILS_ENV:=production}

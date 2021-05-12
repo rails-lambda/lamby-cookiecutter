@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
 SAM_BUCKET_NAME_FILE=".bucket-name"
