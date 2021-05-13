@@ -45,7 +45,7 @@ insert_file_over_pattern 'config/environments/production.rb' '^end'
 #
 # - SAM's `.aws-sam` build dir.
 # - Encourage Dotenv best practices. Ex: Use `.env.development.local`.
-# - Lamby leverages Docker and we build gems into `/vendor/bundle-dev`
+# - Lamby leverages Docker and we build gems into `vendor/bundle`
 #
 cat ../inserts/.gitignore >> ./.gitignore
 

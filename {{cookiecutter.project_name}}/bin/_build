@@ -12,7 +12,7 @@ pushd "./.lamby/$RESOURCE"
 
 echo '== Cleaning Dev Dependencies =='
 rm -rf ./.bundle \
-       ./vendor/bundle-dev
+       ./vendor/bundle
 
 echo '== Bundle For Deployment =='
 bundle lock --add-platform x86_64-linux
