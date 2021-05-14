@@ -1,13 +1,6 @@
 #!/bin/sh
 set -e
 
-if [ "$CI" != "true" ]; then
-  echo "== Cleaning possible prod dependencies from local deploy. =="
-  rm -rf ./.bundle \
-         ./vendor/bundle \
-         ./node_modules
-fi
-
 echo '== Installing dependencies =='
 bundle lock --add-platform x86_64-linux
 bundle lock --add-platform ruby

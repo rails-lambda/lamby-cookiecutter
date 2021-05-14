@@ -23,7 +23,7 @@ Resources:
   RailsLambda:
     Type: AWS::Serverless::Function
     Metadata:
-      DockerContext: .
+      DockerContext: ./.lamby/RailsLambda
       Dockerfile: Dockerfile
       DockerTag: web
       DockerBuildArgs:
