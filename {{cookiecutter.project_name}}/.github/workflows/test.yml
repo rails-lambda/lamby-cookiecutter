@@ -16,7 +16,7 @@ jobs:
           path: |
             ./vendor/bundle
             ./node_modules
-          key: ${{ runner.os }}-test-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}
+          key: {{ "${{ runner.os }}-test-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
       - name: Bootstrap
         run: |
           ./bin/bootstrap
