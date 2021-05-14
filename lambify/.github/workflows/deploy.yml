@@ -1,0 +1,31 @@
+name: Deploy
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Environment
+        run: |
+          echo "UID=$(id -u)" >> $GITHUB_ENV
+          echo "GID=$(id -g)" >> $GITHUB_ENV
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./vendor/bundle
+            ./node_modules
+          key: {{ "${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: {{ "${{ secrets.AWS_ACCESS_KEY_ID }}" }}
+          aws-secret-access-key: {{ "${{ secrets.AWS_SECRET_ACCESS_KEY }}" }}
+          aws-region: us-east-1
+      - name: Bootstrap
+        run: |
+          ./bin/bootstrap
+      - name: Deploy
+        run: |
+          ./bin/deploy

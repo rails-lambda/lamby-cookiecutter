@@ -1,28 +1,26 @@
 #!/bin/sh
 set -e
 
-CLOUDFORMATION_BUCKET=$(cat .bucket-name)
-
 # https://github.com/aws/aws-sam-cli/issues/2447
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/{% include "_cctmp/dash_name.txt" %}"
 
+echo "== Lamby build =="
 ./bin/_build
 
+echo "== SAM build =="
 sam build \
   --parameter-overrides \
     RailsEnv="${RAILS_ENV}"
 
-echo "== SAM package..."
+echo "== SAM package =="
 sam package \
   --region "$AWS_DEFAULT_REGION" \
   --template-file ./.aws-sam/build/template.yaml \
   --output-template-file ./.aws-sam/build/packaged.yaml \
   --image-repository "$IMAGE_REPOSITORY" \
-  --s3-bucket "${CLOUDFORMATION_BUCKET}" \
-  --s3-prefix "{% include "_cctmp/dash_name.txt" %}-${RAILS_ENV}"
 
-echo "== SAM deploy..."
+echo "== SAM deploy =="
 sam deploy \
   --region "$AWS_DEFAULT_REGION" \
   --template-file ./.aws-sam/build/packaged.yaml \
