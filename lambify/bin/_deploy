@@ -5,7 +5,7 @@ CLOUDFORMATION_BUCKET=$(cat .bucket-name)
 
 # https://github.com/aws/aws-sam-cli/issues/2447
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/myorg/{% include "_cctmp/dash_name.txt" %}"
+IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/{% include "_cctmp/dash_name.txt" %}"
 
 ./bin/_build
 
