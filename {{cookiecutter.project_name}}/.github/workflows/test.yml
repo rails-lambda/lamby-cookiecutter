@@ -1,0 +1,28 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Environment
+        run: |
+          echo "UID=$(id -u)" >> $GITHUB_ENV
+          echo "GID=$(id -g)" >> $GITHUB_ENV
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./vendor/bundle
+            ./node_modules
+          key: ${{ runner.os }}-test-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}
+      - name: Bootstrap
+        run: |
+          ./bin/bootstrap
+      - name: Setup
+        run: |
+          ./bin/setup
+      - name: Test
+        run: |
+          ./bin/test
