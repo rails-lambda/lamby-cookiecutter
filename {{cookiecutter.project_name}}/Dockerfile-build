@@ -1,5 +1,13 @@
 FROM amazon/aws-sam-cli-build-image-ruby2.7
 
+# Lamby user to mirror host machine user:group.
+ARG HOST_UID
+ARG HOST_GID
+RUN mkdir /lamby \
+    && /usr/sbin/groupadd --gid $HOST_GID --system --force lamby \
+    && /usr/sbin/useradd --uid $HOST_UID --gid $HOST_GID --non-unique --home-dir /lamby --shell /bin/bash --system lamby \
+    && chown $HOST_UID:$HOST_GID /lamby
+
 # Ensure minimum required SAM version.
 ENV SAM_CLI_VERSION=1.23.0
 RUN curl -L "https://github.com/aws/aws-sam-cli/releases/download/v${SAM_CLI_VERSION}/aws-sam-cli-linux-x86_64.zip" \

@@ -23,3 +23,11 @@ echo "== Environments & Configuration =="
 
 echo "== Asset Hosts & Precompiling =="
 NODE_ENV='production' ./bin/rails assets:precompile
+
+echo "== Cleanup Unused Files & Directories =="
+rm -rf \
+  log \
+  node_modules \
+  test \
+  tmp \
+  vendor/bundle/ruby/2.7.0/cache
