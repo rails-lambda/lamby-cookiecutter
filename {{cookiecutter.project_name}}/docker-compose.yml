@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile-build
     entrypoint: ./bin/entrypoint
     environment:
+      - GEM_HOME=/var/task/vendor/bundle/ruby/2.7.0
       - RAILS_ENV=${RAILS_ENV-development}
       - SAM_CLI_TELEMETRY=0
       - AWS_PROFILE=${AWS_PROFILE-default}
@@ -15,6 +16,6 @@ services:
       - CI=${CI}
     volumes:
       - ${PWD}:/var/task
-      - ${HOME}/.aws:/root/.aws
+      - ${HOME}/.aws:/lamby/.aws
       - /var/run/docker.sock:/var/run/docker.sock
-    user: "${UID}:${GID}"
+    user: "lamby"
