@@ -30,6 +30,8 @@ Resources:
         RAILS_ENV: !Ref RailsEnv
     Properties:
       AutoPublishAlias: live
+      DeploymentPreference:
+        Type: AllAtOnce
       Events:
         HttpApiProxy:
           Type: HttpApi
