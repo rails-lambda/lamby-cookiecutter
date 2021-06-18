@@ -3,6 +3,7 @@ FROM amazon/aws-sam-cli-build-image-ruby2.7
 # Lamby user to mirror host machine user:group.
 ARG HOST_UID
 ARG HOST_GID
+ENV HOME=/lamby
 RUN mkdir /lamby \
     && /usr/sbin/groupadd --gid $HOST_GID --system --force lamby \
     && /usr/sbin/useradd --uid $HOST_UID --gid $HOST_GID --non-unique --home-dir /lamby --shell /bin/bash --system lamby \
