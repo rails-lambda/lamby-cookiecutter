@@ -4,10 +4,10 @@
 
 An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using-aws-sam-cookiecutter-project-templates-to-kickstart-your-ambda-projects/) project template to quickly create a new Rails application for AWS Lambda. Details:
 
-* Rails v6.x on Ruby 2.7 runtime.
-* Integrated JavaScript development.
-* Compiles CSS/JS assets with LibSass & Webpacker.
-* No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
+- Rails v6.x on Ruby 2.7 runtime.
+- Integrated JavaScript development.
+- Compiles CSS/JS assets with LibSass & Webpacker.
+- No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
 
@@ -28,7 +28,7 @@ $ docker run \
   --rm \
   --interactive \
   --volume "${PWD}:/var/task" \
-  amazon/aws-sam-cli-build-image-ruby2.7 \
+  public.ecr.aws/sam/build-ruby2.7 \
   sam init --location "gh:customink/lamby-cookiecutter"
 ```
 
