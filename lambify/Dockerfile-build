@@ -1,4 +1,4 @@
-FROM amazon/aws-sam-cli-build-image-ruby2.7
+FROM public.ecr.aws/sam/build-ruby2.7
 
 # Lamby user to mirror host machine user:group.
 ARG HOST_UID

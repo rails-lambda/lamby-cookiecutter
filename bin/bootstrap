@@ -3,5 +3,5 @@ set -e
 
 echo '== Building containers =='
 
-docker pull amazon/aws-sam-cli-build-image-ruby2.7
+docker pull public.ecr.aws/sam/build-ruby2.7
 docker-compose build
