@@ -7,7 +7,7 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 - Rails v6.x on Ruby 2.7 runtime.
 - Integrated JavaScript development.
 - Compiles CSS/JS assets with LibSass & Webpacker.
-- No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_connections) guides.
+- No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_options) guides.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
 
