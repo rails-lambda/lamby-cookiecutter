@@ -2,6 +2,4 @@
 set -e
 
 echo '== Building containers =='
-
-docker pull public.ecr.aws/sam/build-ruby2.7
 docker-compose build

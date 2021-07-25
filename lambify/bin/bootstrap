@@ -3,8 +3,6 @@ set -e
 
 echo '== Building containers =='
 
-docker pull public.ecr.aws/sam/build-ruby2.7
-
 if [ "$(uname -s)" = "Darwin" ]; then
   HOST_UID="0"
   HOST_GID="0"
