@@ -5,8 +5,8 @@
     <title>{% include "_cctmp/class_name.txt" %}</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_importmap_tags %>
   </head>
   <body>
     <%= yield %>

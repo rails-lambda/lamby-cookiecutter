@@ -8,6 +8,7 @@ if [ "$CI" != "true" ]; then
 fi
 
 echo '== Bundle For Deployment =='
+bundle config --global silence_root_warning true
 bundle lock --add-platform x86_64-linux
 bundle config --local deployment true
 bundle config --local without 'development test'

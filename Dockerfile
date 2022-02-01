@@ -1,4 +1,4 @@
-FROM public.ecr.aws/sam/build-ruby2.7:1.27
+FROM public.ecr.aws/sam/build-ruby2.7
 
 # Node for JavaScript.
 RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash - && \

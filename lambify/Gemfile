@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails'
+gem 'rails', '~> 7.0.1'
 
 gem 'aws-sdk-ssm'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'jbuilder'
+gem 'importmap-rails'
 gem 'lamby', require: false
-gem 'webpacker'
-gem 'sass-rails', '>= 6'
+gem 'sprockets-rails'
 
 group :development do
-  gem 'web-console'
+  gem 'debug'
 end
 
 group :development, :test do

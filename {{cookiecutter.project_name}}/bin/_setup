@@ -13,4 +13,4 @@ bundle lock --add-platform x86_64-linux
 bundle lock --add-platform ruby
 bundle config set --local path 'vendor/bundle'
 bundle install
-./bin/yarn
+# ./bin/yarn

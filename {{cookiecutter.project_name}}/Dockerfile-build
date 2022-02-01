@@ -1,4 +1,4 @@
-FROM public.ecr.aws/sam/build-ruby2.7:1.27
+FROM public.ecr.aws/sam/build-ruby2.7
 
 # Lamby user to mirror host machine user:group.
 ARG HOST_UID
