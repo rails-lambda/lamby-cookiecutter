@@ -1,13 +1,11 @@
 # Lamby Cookiecutter
 
-<a href="https://lamby.custominktech.com"><img src="https://user-images.githubusercontent.com/2381/59363668-89edeb80-8d03-11e9-9985-2ce14361b7e3.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="300" /></a>
+<a href="https://lamby.custominktech.com"><img src="https://raw.githubusercontent.com/customink/lamby/master/images/social2.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="450" style="margin-left:1rem;margin-bottom:1rem;" /></a>
 
 An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using-aws-sam-cookiecutter-project-templates-to-kickstart-your-ambda-projects/) project template to quickly create a new Rails application for AWS Lambda. Details:
 
-- Rails v6.x on Ruby 2.7 runtime.
-- Integrated JavaScript development.
-- Compiles CSS/JS assets.
-- No ActiveRecord. Read our [Database Options](https://lamby.custominktech.com/docs/database_options) guides.
+- Rails v7.x on Ruby 3.1 runtime.
+- Integrated JavaScript & CSS Development.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
 
@@ -17,25 +15,26 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 
 ### SAM Init
 
-If you have the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) already installed, use the first command. If not, use the second Docker based command.
+If you have the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) already installed, use the following command.
 
 ```shell
 $ sam init --location "gh:customink/lamby-cookiecutter"
 ```
+
+You can avoid installing the SAM CLI locally by using this Docker command.
 
 ```shell
 $ docker run \
   --rm \
   --interactive \
   --volume "${PWD}:/var/task" \
-  public.ecr.aws/sam/build-ruby2.7 \
-  sam init --location "gh:customink/lamby-cookiecutter"
+  ghcr.io/customink/lamby-cookiecutter \
+  "gh:customink/lamby-cookiecutter"
 ```
 
 ### Setup & Deploy (within project)
 
 ```shell
-$ ./bin/bootstrap
 $ ./bin/setup
 $ ./bin/deploy
 ```
@@ -45,7 +44,6 @@ $ ./bin/deploy
 This starter project is 100% scripted within Docker using the scripts in the `bin` directory. To build run the following commands.
 
 ```shell
-./bin/bootstrap
 ./bin/build
 ```
 

@@ -5,20 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ./vendor/bundle
             ./node_modules
           key: {{ "${{ runner.os }}-test-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
-      - name: Bootstrap
-        run: |
-          ./bin/bootstrap
-      - name: Setup
-        run: |
-          ./bin/setup
-      - name: Test
-        run: |
-          ./bin/test
+      - name: Setup & Test
+        uses: devcontainers/ci@v0.2
+        with:
+          push: always
+          imageName: ghcr.io/customink/{% include "_cctmp/dash_name.txt" %}-devcontainer
+          cacheFrom: ghcr.io/customink/{% include "_cctmp/dash_name.txt" %}-devcontainer
+          env: |
+            CI
+          runCmd: |
+            ./bin/setup
+            ./bin/test

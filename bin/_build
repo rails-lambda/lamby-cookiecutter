@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-./bin/_rails-new
-./bin/_lambify
-./bin/_inserts
-./bin/_cleanup

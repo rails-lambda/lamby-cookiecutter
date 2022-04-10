@@ -1,0 +1,55 @@
+#!/bin/sh
+set -e
+
+echo "== Running Lambify Script =="
+
+PROJECT_FOLDER="{{cookiecutter.project_name}}"
+
+# We are leaning into dev containers. More: https://containers.dev
+#
+cp -r ./lambify/.devcontainer "$PROJECT_FOLDER"
+
+# A few bin files to ease setup, test, & deploy.
+#
+cp -r ./lambify/bin/* "${PROJECT_FOLDER}/bin"
+
+# It is far easier to get started with basic a `SECRET_KEY_BASE`
+# environment variable vs encrypted credentials. The value here is
+# garbage and should be changed prior to real usage.
+#
+cp ./lambify/config/initializers/secret_key_base.rb "${PROJECT_FOLDER}/config/initializers"
+
+# Create a simple staging env file derived from prod so
+# you can deploy your stack for QA.
+#
+cp ./lambify/config/environments/staging.rb "${PROJECT_FOLDER}/config/environments"
+
+# The `app.rb` file is your entrypoint and handler.
+#
+cp ./lambify/app.rb "${PROJECT_FOLDER}/app.rb"
+
+# The `Dockerfile` is used to build your production image. 
+# Keeping your image small and free of unneeded files is an 
+# important part of deploying containers. As such, this file does
+# a simple copy of your built application into a slim image
+# variant which has no gcc or nodejs runtime.
+#
+cp ./lambify/Dockerfile "${PROJECT_FOLDER}/Dockerfile"
+
+# We replace the Gemfile in whole for a few reasons:
+#
+# - Remove `ruby` declaration. Helps minor udpates
+# - Add the Lamby gem with a require false.
+# - Add lograge gem to reduce CloudWatch noise/costs.
+#
+cp ./lambify/Gemfile "$PROJECT_FOLDER/Gemfile"
+
+# The `template.yaml` file is AWS SAM version of CloudFormation
+# that describes how to package and run your Lambda.
+#
+cp ./lambify/template.yaml "$PROJECT_FOLDER/template.yaml"
+
+# Demonstrate using good CI/CD practicues. Using GitHub Actions
+# here for both a simple test and depploy workflow.
+#
+cp -r ./lambify/.github "$PROJECT_FOLDER"

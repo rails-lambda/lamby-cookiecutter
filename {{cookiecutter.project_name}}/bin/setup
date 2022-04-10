@@ -1,6 +1,24 @@
 #!/bin/sh
 set -e
 
-docker-compose run \
-  {% include "_cctmp/dash_name.txt" %} \
-  ./bin/_setup
+if [ "$CI" != "true" ]; then
+  echo "== Cleaning possible prod dependencies from local deploy. =="
+  rm -rf ./.bundle \
+         ./vendor/bundle \
+         ./node_modules
+fi
+
+echo '== Installing dependencies =='
+bundle config set --local path 'vendor/bundle'
+bundle install
+
+echo "== Preparing database =="
+./bin/rails db:prepare
+
+echo "== Removing old logs and tempfiles =="
+./bin/rails log:clear tmp:clear
+
+echo "== Restarting application server =="
+./bin/rails restart
+
+# ./bin/yarn

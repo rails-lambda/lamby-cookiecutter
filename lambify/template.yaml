@@ -26,8 +26,6 @@ Resources:
       DockerContext: .
       Dockerfile: Dockerfile
       DockerTag: web
-      DockerBuildArgs:
-        RAILS_ENV: !Ref RailsEnv
     Properties:
       AutoPublishAlias: live
       DeploymentPreference:
