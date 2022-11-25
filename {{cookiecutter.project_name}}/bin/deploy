@@ -51,3 +51,10 @@ sam deploy \
   --capabilities "CAPABILITY_IAM" \
   --parameter-overrides \
     RailsEnv="${RAILS_ENV}"
+
+if [ "$CI" != "true" ]; then
+  echo "== Cleaning prod deploy dependencies from local. =="
+  rm -rf ./.bundle \
+         ./vendor/bundle \
+         ./node_modules
+fi
