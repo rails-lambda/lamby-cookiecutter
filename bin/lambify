@@ -19,6 +19,11 @@ cp -r ./lambify/bin/* "${PROJECT_FOLDER}/bin"
 #
 cp ./lambify/config/initializers/secret_key_base.rb "${PROJECT_FOLDER}/config/initializers"
 
+# Add a database.yml file to the project with devcontainer configs and
+# `DATABASE_URL` environment variable support.
+#
+cp ./lambify/config/database.yml "${PROJECT_FOLDER}/config/database.yml"
+
 # Create a simple staging env file derived from prod so
 # you can deploy your stack for QA.
 #
