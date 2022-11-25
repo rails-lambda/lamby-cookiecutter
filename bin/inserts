@@ -13,11 +13,17 @@ insert_file_over_pattern () {
   sed --in-place "${rline}r ../inserts/${1}" $1
 }
 
-# Replace `RenameMe` module namespace with cookiecutter's name.
+# Replace RenameMe|rename_me with cookiecutter's name.
 #
 sed --in-place \
   's/RenameMe/{% include "_cctmp\/class_name.txt" %}/' \
   config/application.rb
+sed --in-place \
+  's/rename_me_production/{% include "_cctmp\/dash_name.txt" %}-production/' \
+  config/cable.yml
+sed --in-place \
+  's/rename_me_production/{% include "_cctmp\/dash_name.txt" %}-production/' \
+  config/environments/production.rb
 
 # Create a simple welcome to Lamby/Rails index page. To do
 # this we need a simple starter route, view layout and template.

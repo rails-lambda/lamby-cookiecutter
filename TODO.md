@@ -1,7 +1,6 @@
 # Dev/Container Overhaul
 
 - How can I mimic project folder name in dev container?
-- Find any `rename_me` stuff like database.yml.
 - What should I do in bin/setup if not ./bin/yarn
 - Test SAM init with Docker again. Can be done with branch?
 - Make sure "Next Steps" in project's README make sense.
