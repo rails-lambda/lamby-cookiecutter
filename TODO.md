@@ -2,9 +2,7 @@
 
 - How can I mimic project folder name in dev container?
 - What should I do in bin/setup if not ./bin/yarn
-- Test SAM init with Docker again. Can be done with branch?
 - Make sure "Next Steps" in project's README make sense.
-- Go vanilla, especially for bin scripts. Delete run, server, bootstrap, etc.
 - Is lamby:ssm:dotenv still good and how about Dotenv? Use Crypteia.
 - Can we trim down the app.rb file???
 - Add Devcontainer stuff to both READMEs.
