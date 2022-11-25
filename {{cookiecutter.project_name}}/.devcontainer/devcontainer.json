@@ -1,7 +1,6 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "service": "app",
+  "dockerComposeFile": "docker-compose.yml",
   "features": {
     "ghcr.io/devcontainers/features/common-utils": {},
     "ghcr.io/devcontainers/features/node:latest": {},
@@ -9,5 +8,12 @@
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
     "ghcr.io/devcontainers/features/sshd:latest": {}
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "COMPOSE_HTTP_TIMEOUT": "300"
+  },
+  "workspaceFolder": "/workspaces",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached"
+  ]
 }
