@@ -1,6 +1,5 @@
 # Dev/Container Overhaul
 
-- How can I mimic project folder name in dev container?
 - What should I do in bin/setup if not ./bin/yarn
 - Make sure "Next Steps" in project's README make sense.
 - Is lamby:ssm:dotenv still good and how about Dotenv? Use Crypteia.
@@ -8,7 +7,6 @@
 - Add Devcontainer stuff to both READMEs.
 - Best practice for creating a /app directory or something like /var/task in Ruby image?
 - Can we try Function URLs vs `HttpApiProxy`.
-- Should we set `SAM_CLI_TELEMETRY=0` again?
 - Do we use dev containers in the deploy and test?
 - How should we do `SECRET_KEY_BASE` now with Crypteia?
 
