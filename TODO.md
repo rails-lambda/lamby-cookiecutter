@@ -7,7 +7,6 @@
 - Add Devcontainer stuff to both READMEs.
 - Best practice for creating a /app directory or something like /var/task in Ruby image?
 - Can we try Function URLs vs `HttpApiProxy`.
-- Do we use dev containers in the deploy and test?
 - How should we do `SECRET_KEY_BASE` now with Crypteia?
 
 ## ECR Repo Creation!
