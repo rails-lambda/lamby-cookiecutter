@@ -12,8 +12,8 @@
   "remoteEnv": {
     "COMPOSE_HTTP_TIMEOUT": "300"
   },
-  "workspaceFolder": "/workspaces",
+  "workspaceFolder": "/workspaces/{{cookiecutter.project_name}}",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder},target=/workspaces/{{cookiecutter.project_name}},type=bind,consistency=cached"
   ]
 }
