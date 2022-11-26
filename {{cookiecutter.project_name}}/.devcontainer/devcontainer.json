@@ -6,7 +6,8 @@
     "ghcr.io/devcontainers/features/node:latest": {},
     "ghcr.io/devcontainers/features/aws-cli:latest": {},
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
-    "ghcr.io/devcontainers/features/sshd:latest": {}
+    "ghcr.io/devcontainers/features/sshd:latest": {},
+    "ghcr.io/customink/codespaces-features/sam-cli": {}
   },
   "remoteUser": "vscode",
   "remoteEnv": {

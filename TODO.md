@@ -5,11 +5,10 @@
   - Best practice for creating a /app directory or something like /var/task in Ruby image?
   - Can we trim down the app.rb file???
   - Is lamby:ssm:dotenv still good and how about Dotenv? Use Crypteia.
-- What should I do in bin/setup if not ./bin/yarn
 - Make sure "Next Steps" in project's README make sense.
   - How should we do `SECRET_KEY_BASE` now with Crypteia?
 - Update Lamby Site & Guides
- 
+
 ## ECR Repo Creation!
 
 So SAM does this automatically now create the ECR repo? Or should I put this back in someplace?
