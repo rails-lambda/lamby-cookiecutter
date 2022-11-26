@@ -6,17 +6,24 @@ Made with [Lamby's](https://lamby.custominktech.com/docs/quick_start) quick star
 
 - Rails v7.x on Ruby 3.1 runtime.
 - Integrated JavaScript & CSS Development.
+- CI/CD GitHub Actions for Test & Deploy.
 
 **[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
 
-## Setup & Deploy
+## Setup & Test
+
+This project is built for [GitHub Codespcaes](https://github.com/features/codespaces) using the [Development Container](https://containers.dev) specification. Once you have the repo cloned and setup with a dev container using either Codespaces or [VS Code](#using-vs-code), run the following commands. This will install packages and run tests.
 
 ```shell
 $ ./bin/setup
-$ ./bin/deploy
+$ ./bin/test
 ```
+
+#### Using VS Code
+
+If you have the [Visual Studio Code Dev Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed you can easily clone this repo locally, use the "Open Folder in Container..." command. This allows you to use the integrated terminal for the commands above.
 
 ## Next Steps
 
+- Deploy it. Read the Lamby [Quick Start](https://lamby.custominktech.com/docs/quick_start) guide for details.
 - Provide a new value for the `SECRET_KEY_BASE`. Alternatively, you can set this using Dotenv & SSM Parameter Store in the [Environments & Configuration](https://lamby.custominktech.com/docs/environment_and_configuration) section of your build file.
-- Using JavaScript? everything is setup and ready to go.

@@ -4,10 +4,10 @@
 - Make sure "Next Steps" in project's README make sense.
 - Is lamby:ssm:dotenv still good and how about Dotenv? Use Crypteia.
 - Can we trim down the app.rb file???
-- Add Devcontainer stuff to both READMEs.
 - Best practice for creating a /app directory or something like /var/task in Ruby image?
 - Can we try Function URLs vs `HttpApiProxy`.
 - How should we do `SECRET_KEY_BASE` now with Crypteia?
+- Update Lamby Site & Guides
 
 ## ECR Repo Creation!
 

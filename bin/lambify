@@ -5,10 +5,6 @@ echo "== Running Lambify Script =="
 
 PROJECT_FOLDER="{{cookiecutter.project_name}}"
 
-# We are leaning into dev containers. More: https://containers.dev
-#
-cp -r ./lambify/.devcontainer "$PROJECT_FOLDER"
-
 # A few bin files to ease setup, test, & deploy.
 #
 cp -r ./lambify/bin/* "${PROJECT_FOLDER}/bin"

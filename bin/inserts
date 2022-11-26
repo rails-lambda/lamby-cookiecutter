@@ -13,6 +13,10 @@ insert_file_over_pattern () {
   sed --in-place "${rline}r ../inserts/${1}" $1
 }
 
+# We are leaning into dev containers. More: https://containers.dev
+#
+cp -r ../inserts/.devcontainer .
+
 # Replace RenameMe|rename_me with cookiecutter's name.
 #
 sed --in-place \
