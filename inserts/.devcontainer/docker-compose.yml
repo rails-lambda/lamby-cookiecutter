@@ -4,6 +4,8 @@ services:
     command: sleep infinity
     privileged: true
     environment:
+      - BUNDLE_IGNORE_CONFIG=1
+      - BUNDLE_PATH=./vendor/bundle
       - MYSQL_HOST=mysql
       - MYSQL_ROOT_PASSWORD=root
     depends_on:
