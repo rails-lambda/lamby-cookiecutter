@@ -8,4 +8,4 @@ COPY . .
 ENV RAILS_SERVE_STATIC_FILES=1
 
 CMD ["app.handler"]
-ENTRYPOINT [ "/usr/local/bin/aws_lambda_ric" ]
+ENTRYPOINT [ "/usr/local/bundle/bin/aws_lambda_ric" ]
