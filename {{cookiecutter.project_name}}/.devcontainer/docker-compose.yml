@@ -9,7 +9,7 @@ services:
       - MYSQL_HOST=mysql
       - MYSQL_ROOT_PASSWORD=root
     depends_on:
-      mysql: { condition: service_started }
+      mysql: { condition: service_healthy }
   mysql:
     image: mysql:8.0
     restart: unless-stopped
