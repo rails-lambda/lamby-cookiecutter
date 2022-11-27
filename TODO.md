@@ -9,18 +9,6 @@
   - How should we do `SECRET_KEY_BASE` now with Crypteia?
 - Update Lamby Site & Guides
 
-## ECR Repo Creation!
-
-So SAM does this automatically now create the ECR repo? Or should I put this back in someplace?
-
-```shell
-aws ecr create-repository \
-  --repository-name {% include "_cctmp/dash_name.txt" %} \
-  --image-tag-mutability MUTABLE \
-  --image-scanning-configuration scanOnPush=true \
-  --region "$AWS_DEFAULT_REGION" || true
-```
-
 ## Dotenv Rake Task
 
 ```
