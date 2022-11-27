@@ -12,7 +12,7 @@ jobs:
           path: |
             ./vendor/bundle
             ./node_modules
-          key: {{ "${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
+          key: {{ "${{ runner.os }}-deploy-v1-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:

@@ -12,7 +12,7 @@ jobs:
           path: |
             ./vendor/bundle
             ./node_modules
-          key: {{ "${{ runner.os }}-test-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
+          key: {{ "${{ runner.os }}-test-v1-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}" }}
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
