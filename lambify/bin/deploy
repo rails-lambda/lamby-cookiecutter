@@ -14,10 +14,13 @@ if [ "$CI" != "true" ]; then
 fi
 
 echo '== Create ECR Repo if needed. =='
+aws ecr describe-repositories \
+  --repository-names "{% include "_cctmp/dash_name.txt" %}" \
+  --region "$AWS_REGION" > /dev/null || \
 aws ecr create-repository \
-  --repository-name lamby-four \
-  --image-tag-mutability MUTABLE \
-  --image-scanning-configuration scanOnPush=true \
+  --repository-name "{% include "_cctmp/dash_name.txt" %}" \
+  --image-tag-mutability "MUTABLE" \
+  --image-scanning-configuration "scanOnPush=true" \
   --region "$AWS_REGION" > /dev/null || true
 
 echo '== Bundle For Deployment =='
