@@ -8,6 +8,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     depends_on:
       mysql: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "docker", "info"]
   mysql:
     image: mysql:8.0
     restart: unless-stopped
