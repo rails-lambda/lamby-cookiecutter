@@ -1,6 +1,9 @@
+# Shared image, envs, packages for both devcontainer & prod.
 FROM ruby:3.1-bullseye
-RUN mkdir -p /workspaces/{{cookiecutter.project_name}}
 
-RUN apt update \
-    && apt install --assume-yes --no-install-recommends \
-    mariadb-server
+# Local devcontainer Codespaces compatibility.
+RUN apt update
+RUN mkdir -p /workspaces/{{cookiecutter.project_name}}
+ENV BUNDLE_IGNORE_CONFIG=1
+ENV BUNDLE_PATH=./vendor/bundle
+ENV BUNDLE_CACH_PATH=./vendor/cache
