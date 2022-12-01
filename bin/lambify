@@ -25,10 +25,6 @@ cp ./lambify/config/database.yml "${PROJECT_FOLDER}/config/database.yml"
 #
 cp ./lambify/config/environments/staging.rb "${PROJECT_FOLDER}/config/environments"
 
-# The `app.rb` file is your entrypoint and handler.
-#
-cp ./lambify/app.rb "${PROJECT_FOLDER}/app.rb"
-
 # The `Dockerfile` is used to build your production image. 
 # Keeping your image small and free of unneeded files is an 
 # important part of deploying containers. As such, this file does
