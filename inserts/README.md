@@ -26,4 +26,4 @@ If you have the [Visual Studio Code Dev Container](https://marketplace.visualstu
 ## Next Steps
 
 - Deploy it. Read the Lamby [Quick Start](https://lamby.custominktech.com/docs/quick_start) guide for details.
-- Provide a new value for the `SECRET_KEY_BASE`. Alternatively, you can set this using Dotenv & SSM Parameter Store in the [Environments & Configuration](https://lamby.custominktech.com/docs/environment_and_configuration) section of your build file.
+- Provide a new value for the `SECRET_KEY_BASE` or other environment variables using our [Environment & Configuration](https://lamby.custominktech.com/docs/environment_and_configuration) guides.
