@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+VERSION="7.0.4"
+PROJECT_FOLDER="{{cookiecutter.project_name}}"
+
+echo "== Installing Rails $VERSION =="
+
+rm -rf ./rename_me
+rm -rf "$PROJECT_FOLDER"
+
+gem install rails -v $VERSION --no-document
+
+rails _"$VERSION"_ new rename_me \
+  --database=mysql \
+  --skip-bootsnap \
+  --skip-bundle
+
+mv "rename_me" "$PROJECT_FOLDER"

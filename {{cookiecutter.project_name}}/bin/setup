@@ -1,6 +1,16 @@
 #!/bin/sh
 set -e
 
-docker-compose run \
-  {% include "_cctmp/dash_name.txt" %} \
-  ./bin/_setup
+echo '== Installing dependencies =='
+bundle install
+
+echo "== Preparing database =="
+./bin/rails db:prepare
+
+echo "== Removing old logs and tempfiles =="
+./bin/rails log:clear tmp:clear
+
+echo "== Restarting application server =="
+./bin/rails restart
+
+# ./bin/yarn

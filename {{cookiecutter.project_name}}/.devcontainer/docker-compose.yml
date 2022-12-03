@@ -1,0 +1,20 @@
+services:
+  app:
+    build: { context: ., dockerfile: Dockerfile }
+    command: sleep infinity
+    privileged: true
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=root
+    depends_on:
+      mysql: { condition: service_healthy }
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes: ["data-mysql:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "127.0.0.1", "-u", "root", "-proot"]
+volumes:
+  data-mysql:

@@ -1,8 +1,4 @@
 #!/bin/sh
 set -e
 
-export RAILS_ENV="test"
-
-docker-compose run \
-  {% include "_cctmp/dash_name.txt" %} \
-  ./bin/_test
+./bin/rails test

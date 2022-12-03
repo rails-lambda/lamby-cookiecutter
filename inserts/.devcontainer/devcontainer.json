@@ -1,0 +1,20 @@
+{
+  "service": "app",
+  "dockerComposeFile": "docker-compose.yml",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils": {},
+    "ghcr.io/devcontainers/features/node:latest": {},
+    "ghcr.io/devcontainers/features/aws-cli:latest": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
+    "ghcr.io/devcontainers/features/sshd:latest": {},
+    "ghcr.io/customink/codespaces-features/sam-cli": {}
+  },
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "COMPOSE_HTTP_TIMEOUT": "300"
+  },
+  "workspaceFolder": "/workspaces/{{cookiecutter.project_name}}",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/{{cookiecutter.project_name}},type=bind,consistency=cached"
+  ]
+}

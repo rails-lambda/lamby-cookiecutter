@@ -1,8 +1,74 @@
 #!/bin/sh
 set -e
 
-export RAILS_ENV=${RAILS_ENV:=production}
+RAILS_ENV=${RAILS_ENV-production}
 
-docker-compose run \
-  {% include "_cctmp/dash_name.txt" %} \
-  ./bin/_deploy
+AWS_REGION=${AWS_REGION-$(aws configure get region)}
+AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/{% include "_cctmp/dash_name.txt" %}"
+
+if [ "$CI" != "true" ]; then
+  echo "== Cleaning dev dependencies for local deploy. Run ./bin/setup again afterward! =="
+  rm -rf ./.bundle \
+         ./vendor/bundle
+fi
+
+echo '== Create ECR Repo if needed. =='
+aws ecr describe-repositories \
+  --repository-names "{% include "_cctmp/dash_name.txt" %}" \
+  --region "$AWS_REGION" > /dev/null || \
+aws ecr create-repository \
+  --repository-name "{% include "_cctmp/dash_name.txt" %}" \
+  --image-tag-mutability "MUTABLE" \
+  --image-scanning-configuration "scanOnPush=true" \
+  --region "$AWS_REGION" > /dev/null || true
+
+echo '== Bundle For Deployment =='
+bundle config --global silence_root_warning true
+bundle config --local deployment true
+bundle config --local without 'development test'
+bundle config --local path './vendor/bundle'
+bundle install --quiet --jobs 4
+
+echo "== Asset Hosts & Precompiling =="
+NODE_ENV='production' ./bin/rails assets:precompile
+
+if [ "$CI" = "true" ]; then
+  echo "== Cleanup Unused Files & Directories =="
+  rm -rf \
+    log \
+    node_modules \
+    test \
+    tmp \
+    vendor/bundle/ruby/*/cache
+fi
+
+echo "== SAM build =="
+sam build \
+  --parameter-overrides \
+    RailsEnv="${RAILS_ENV}"
+
+echo "== SAM package =="
+sam package \
+  --region "$AWS_REGION" \
+  --template-file ./.aws-sam/build/template.yaml \
+  --output-template-file ./.aws-sam/build/packaged.yaml \
+  --image-repository "$IMAGE_REPOSITORY"
+
+echo "== SAM deploy =="
+sam deploy \
+  --region "$AWS_REGION" \
+  --template-file ./.aws-sam/build/packaged.yaml \
+  --stack-name "{% include "_cctmp/dash_name.txt" %}-${RAILS_ENV}" \
+  --image-repository "$IMAGE_REPOSITORY" \
+  --capabilities "CAPABILITY_IAM" \
+  --parameter-overrides \
+    RailsEnv="${RAILS_ENV}"
+
+if [ "$CI" != "true" ]; then
+  echo "== Cleaning prod deploy dependencies from local. =="
+  rm -rf ./.bundle \
+         ./vendor/bundle \
+         ./node_modules \
+         ./public/assets
+fi

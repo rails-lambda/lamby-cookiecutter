@@ -26,32 +26,17 @@ Resources:
       DockerContext: .
       Dockerfile: Dockerfile
       DockerTag: web
-      DockerBuildArgs:
-        RAILS_ENV: !Ref RailsEnv
     Properties:
       AutoPublishAlias: live
       DeploymentPreference:
         Type: AllAtOnce
-      Events:
-        HttpApiProxy:
-          Type: HttpApi
-          Properties:
-            ApiId: !Ref RailsHttpApi
       MemorySize: 1792
       PackageType: Image
       Timeout: 30
 
-  RailsHttpApi:
-    Type: AWS::Serverless::HttpApi
-    Properties:
-      StageName: !Ref RailsEnv
-
 Outputs:
 
-  {% include "_cctmp/class_name.txt" %}HttpApiUrl:
-    Description: Lambda Invoke URL
-    Value: !Sub https://${RailsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${RailsEnv}/
-
-  {% include "_cctmp/class_name.txt" %}LambdaResourceArn:
-    Description: Lambda ARN
-    Value: RailsLambda.Arn
+  RailsLambdaUrl:
+    Description: Lambda Function URL
+    Value:
+      Fn::GetAtt: RailsLambdaUrl.FunctionUrl
