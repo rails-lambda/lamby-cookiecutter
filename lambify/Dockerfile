@@ -20,4 +20,4 @@ ENV BUNDLE_PATH=./vendor/bundle
 ENV BUNDLE_CACH_PATH=./vendor/cache
 ENV RAILS_SERVE_STATIC_FILES=1
 COPY . .
-CMD ["config/environment.Lamby.command"]
+CMD ["config/environment.Lamby.cmd"]
