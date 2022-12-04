@@ -28,6 +28,8 @@ Resources:
       DockerTag: web
     Properties:
       AutoPublishAlias: live
+      FunctionUrlConfig:
+        AuthType: NONE
       DeploymentPreference:
         Type: AllAtOnce
       MemorySize: 1792
@@ -38,5 +40,4 @@ Outputs:
 
   RailsLambdaUrl:
     Description: Lambda Function URL
-    Value:
-      Fn::GetAtt: RailsLambdaUrl.FunctionUrl
+    Value: !GetAtt RailsLambdaUrl.FunctionUrl
