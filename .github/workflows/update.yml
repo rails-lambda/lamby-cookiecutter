@@ -1,0 +1,20 @@
+name: "update"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build & Push
+        run: ./bin/build
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        commit_message: Auto Update
