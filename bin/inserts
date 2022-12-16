@@ -63,3 +63,8 @@ cat ../inserts/.gitignore >> ./.gitignore
 # the root README for details like what this project has installed.
 #
 cp ../inserts/README.md README.md
+
+# Bundle install so we can make Quick Start super fast for 1st deploy.
+# 
+bundle install --quiet
+rm -rf vendor

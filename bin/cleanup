@@ -10,7 +10,6 @@ rm -rf ./.git \
        ./config/puma \
        ./config/master.key \
        ./config/credentials.yml.enc \
-       ./Gemfile.lock \
        ./node_modules \
        ./log/development.log \
        yarn.lock
