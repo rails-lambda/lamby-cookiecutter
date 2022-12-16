@@ -17,4 +17,5 @@ jobs:
         run: ./bin/build
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
-        commit_message: Auto Update
+        with:
+          commit_message: Auto Update
