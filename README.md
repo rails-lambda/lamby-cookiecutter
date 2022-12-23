@@ -2,7 +2,7 @@
 
 <a href="https://lamby.custominktech.com"><img src="https://raw.githubusercontent.com/customink/lamby/master/images/social2.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="450" style="margin-left:1rem;margin-bottom:1rem;" /></a>
 
-An [cookiecutter](https://github.com/cookiecutter/cookiecutter) project template to quickly create a new Rails application for AWS Lambda. Details:
+A [cookiecutter](https://github.com/cookiecutter/cookiecutter) project template to quickly create a new Rails application for AWS Lambda. Details:
 
 - Rails v7.x on Ruby 3.1 runtime.
 - Integrated JavaScript & CSS Development.
