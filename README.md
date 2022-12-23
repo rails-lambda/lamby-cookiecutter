@@ -12,7 +12,7 @@ An [AWS SAM cookiecutter](https://technology.customink.com/blog/2020/03/13/using
 
 ## Usage
 
-⚠️ Please reference the full [Quick Start](https://lamby.custominktech.com/docs/quick_start) guide on the Lamby site for details. Basic usage requires Docker to be installed to run the Cookiecutter software using the following command.
+⚠️ Please reference the full [Quick Start](https://lamby.custominktech.com/docs/quick-start) guide on the Lamby site for details. Basic usage requires Docker to be installed to run the Cookiecutter software using the following command.
 
 ```shell
 $ docker run \
