@@ -21,16 +21,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/customink/lamby-cookiecutter
-          tags: latest
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64,linux/arm/v7
+          platforms: linux/amd64,linux/arm/v8
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/customink/lamby-cookiecutter:latest
