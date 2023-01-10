@@ -1,8 +1,0 @@
-#!/bin/sh
-set -e
-
-docker build \
-  --tag "ghcr.io/customink/lamby-cookiecutter:latest" \
-  --file cc-in-docker/Dockerfile .
-
-docker push "ghcr.io/customink/lamby-cookiecutter:latest"
