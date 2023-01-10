@@ -17,7 +17,7 @@ WORKDIR "/app"
 # Copy prod application files and set handler.
 ENV BUNDLE_IGNORE_CONFIG=1
 ENV BUNDLE_PATH=./vendor/bundle
-ENV BUNDLE_CACH_PATH=./vendor/cache
+ENV BUNDLE_CACHE_PATH=./vendor/cache
 ENV RAILS_SERVE_STATIC_FILES=1
 COPY . .
 CMD ["config/environment.Lamby.cmd"]
