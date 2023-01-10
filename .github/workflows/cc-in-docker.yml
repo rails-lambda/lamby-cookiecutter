@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: customink/lamby-cookiecutter
+          images: ghcr.io/customink/lamby-cookiecutter
           tags: latest
       - name: Build and push
         uses: docker/build-push-action@v3
