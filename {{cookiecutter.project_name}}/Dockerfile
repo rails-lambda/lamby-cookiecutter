@@ -3,7 +3,7 @@ FROM ruby:3.1-bullseye
 
 # Install the AWS Lambda Runtime Interface Client & Crypteia for secure SSM-backed envs.
 RUN gem install 'aws_lambda_ric'
-COPY --from=ghcr.io/customink/crypteia-extension-debian:latest /opt /opt
+COPY --from=ghcr.io/customink/crypteia-extension-debian:1.1.0 /opt /opt
 ENTRYPOINT [ "/usr/local/bundle/bin/aws_lambda_ric" ]
 
 # Create a secure user for prod and app directory.
