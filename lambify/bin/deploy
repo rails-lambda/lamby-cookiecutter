@@ -3,7 +3,7 @@ set -e
 
 RAILS_ENV=${RAILS_ENV-production}
 
-AWS_REGION=${AWS_REGION-$(aws configure get region)}
+AWS_REGION=${AWS_REGION-$(aws configure get region || echo 'us-east-1')}
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 IMAGE_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/{% include "_cctmp/dash_name.txt" %}"
 
