@@ -5,6 +5,7 @@ FROM ruby:3.1-bullseye
 RUN gem install 'aws_lambda_ric'
 COPY --from=ghcr.io/customink/crypteia-extension-debian:1.1.0 /opt /opt
 ENTRYPOINT [ "/usr/local/bundle/bin/aws_lambda_ric" ]
+ENV LD_PRELOAD=/opt/lib/libcrypteia.so
 
 # Create a secure user for prod and app directory.
 RUN mkdir /app \
