@@ -127,7 +127,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.0-x86_64-linux)
+    nokogiri (1.14.1-x86_64-linux)
       racc (~> 1.4)
     public_suffix (5.0.1)
     racc (1.6.2)
@@ -183,7 +183,7 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.3.1)
-    turbo-rails (1.3.2)
+    turbo-rails (1.3.3)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
