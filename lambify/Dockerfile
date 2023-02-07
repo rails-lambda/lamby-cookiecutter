@@ -1,5 +1,5 @@
 # Shared image, envs, packages for both devcontainer & prod.
-FROM ruby:3.1-bullseye
+FROM ruby:3.2-bullseye
 
 # Install the AWS Lambda Runtime Interface Client & Crypteia for secure SSM-backed envs.
 RUN gem install 'aws_lambda_ric'

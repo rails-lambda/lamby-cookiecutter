@@ -1,5 +1,5 @@
 # Shared image, envs, packages for both devcontainer & prod.
-FROM ruby:3.1-bullseye
+FROM ruby:3.2-bullseye
 
 # Local devcontainer Codespaces compatibility.
 RUN apt update

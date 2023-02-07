@@ -4,7 +4,7 @@
 
 A [cookiecutter](https://github.com/cookiecutter/cookiecutter) project template to quickly create a new Rails application for AWS Lambda. Details:
 
-- Rails v7.x on Ruby 3.1 runtime.
+- Rails v7.x on Ruby 3.2 runtime.
 - Integrated JavaScript & CSS Development.
 - CI/CD GitHub Actions for Test & Deploy.
 

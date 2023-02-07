@@ -4,7 +4,7 @@
 
 Made with [Lamby's](https://lamby.custominktech.com/docs/quick_start) quick start to create a new Rails application for AWS Lambda. Details:
 
-- Rails v7.x on Ruby 3.1 runtime.
+- Rails v7.x on Ruby 3.2 runtime.
 - Integrated JavaScript & CSS Development.
 - CI/CD GitHub Actions for Test & Deploy.
 
