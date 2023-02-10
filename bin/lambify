@@ -45,8 +45,3 @@ cp ./lambify/Gemfile "$PROJECT_FOLDER/Gemfile"
 # that describes how to package and run your Lambda.
 #
 cp ./lambify/template.yaml "$PROJECT_FOLDER/template.yaml"
-
-# Demonstrate using good CI/CD practicues. Using GitHub Actions
-# here for both a simple test and depploy workflow.
-#
-cp -r ./lambify/.github "$PROJECT_FOLDER"
