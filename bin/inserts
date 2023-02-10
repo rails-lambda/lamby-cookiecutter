@@ -17,10 +17,13 @@ insert_file_over_pattern () {
 #
 cp -r ../inserts/.devcontainer .
 
-# Demonstrate using good CI/CD practicues. Using GitHub Actions
-# here for both a simple test and depploy workflow.
+# Demonstrate using good CI/CD practicues. Using GitHub Actions.
 #
 cp -r ../inserts/.github .
+
+# Demonstrate using good CI/CD practicues. Using CircleCI.
+#
+cp -r ../inserts/.circleci .
 
 # Replace RenameMe|rename_me with cookiecutter's name.
 #
