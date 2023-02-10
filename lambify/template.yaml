@@ -27,6 +27,8 @@ Resources:
       Dockerfile: Dockerfile
       DockerTag: web
     Properties:
+      Architectures:
+        - x86_64
       AutoPublishAlias: live
       FunctionUrlConfig:
         AuthType: NONE
