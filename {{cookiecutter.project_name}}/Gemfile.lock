@@ -99,7 +99,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    lamby (4.0.1)
+    lamby (4.0.2)
       rack
     lograge (0.12.0)
       actionpack (>= 4)
@@ -161,7 +161,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    regexp_parser (2.6.2)
+    regexp_parser (2.7.0)
     reline (0.3.2)
       io-console (~> 0.5)
     request_store (1.5.1)
