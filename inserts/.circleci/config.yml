@@ -2,7 +2,7 @@ default-machine: &default-machine
   machine:
     image: ubuntu-2204:current
     docker_layer_caching: true
-  resource_class: large
+  resource_class: arm.large
 version: 2.1
 parameters:
   workflow:

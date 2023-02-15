@@ -28,7 +28,7 @@ Resources:
       DockerTag: web
     Properties:
       Architectures:
-        - x86_64
+        - arm64
       AutoPublishAlias: live
       FunctionUrlConfig:
         AuthType: NONE
