@@ -16,6 +16,9 @@ Globals:
   Function:
     Architectures:
       - arm64
+    AutoPublishAlias: live
+    DeploymentPreference:
+      Type: AllAtOnce
     Environment:
       Variables:
         RAILS_ENV: !Ref RailsEnv
@@ -30,11 +33,8 @@ Resources:
       Dockerfile: Dockerfile
       DockerTag: web
     Properties:
-      AutoPublishAlias: live
       FunctionUrlConfig:
         AuthType: NONE
-      DeploymentPreference:
-        Type: AllAtOnce
       MemorySize: 1792
       PackageType: Image
 
