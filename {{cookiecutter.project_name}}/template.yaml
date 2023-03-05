@@ -17,6 +17,8 @@ Globals:
     Environment:
       Variables:
         RAILS_ENV: !Ref RailsEnv
+    Architectures:
+      - arm64
 
 Resources:
 
@@ -27,8 +29,6 @@ Resources:
       Dockerfile: Dockerfile
       DockerTag: web
     Properties:
-      Architectures:
-        - arm64
       AutoPublishAlias: live
       FunctionUrlConfig:
         AuthType: NONE
