@@ -19,6 +19,7 @@ Globals:
         RAILS_ENV: !Ref RailsEnv
     Architectures:
       - arm64
+    Timeout: 30
 
 Resources:
 
@@ -36,7 +37,6 @@ Resources:
         Type: AllAtOnce
       MemorySize: 1792
       PackageType: Image
-      Timeout: 30
 
 Outputs:
 
