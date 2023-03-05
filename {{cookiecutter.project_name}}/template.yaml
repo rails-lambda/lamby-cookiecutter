@@ -14,11 +14,11 @@ Parameters:
 Globals:
 
   Function:
+    Architectures:
+      - arm64
     Environment:
       Variables:
         RAILS_ENV: !Ref RailsEnv
-    Architectures:
-      - arm64
     Timeout: 30
 
 Resources:
