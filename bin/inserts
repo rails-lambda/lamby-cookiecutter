@@ -75,4 +75,6 @@ cp ../inserts/README.md README.md
 # Bundle install so we can make Quick Start super fast for 1st deploy.
 # 
 bundle install --quiet
+bundle lock --add-platform aarch64-linux
+bundle lock --add-platform x86_64-linux
 rm -rf vendor
