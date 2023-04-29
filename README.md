@@ -1,6 +1,6 @@
 # Lamby Cookiecutter
 
-<a href="https://lamby.custominktech.com"><img src="https://raw.githubusercontent.com/customink/lamby/master/images/social2.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="450" style="margin-left:1rem;margin-bottom:1rem;" /></a>
+<a href="https://lamby.cloud"><img src="https://raw.githubusercontent.com/rails-lambda/lamby/master/images/social2.png" alt="Lamby: Simple Rails & AWS Lambda Integration using Rack." align="right" width="450" style="margin-left:1rem;margin-bottom:1rem;" /></a>
 
 A [cookiecutter](https://github.com/cookiecutter/cookiecutter) project template to quickly create a new Rails application for AWS Lambda. Details:
 
@@ -8,19 +8,19 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) project template 
 - Integrated JavaScript & CSS Development.
 - CI/CD GitHub Actions for Test & Deploy.
 
-**[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.custominktech.com)**
+**[Lamby: Simple Rails & AWS Lambda Integration using Rack.](https://lamby.cloud)**
 
 ## Usage
 
-⚠️ Please reference the full [Quick Start](https://lamby.custominktech.com/docs/quick-start) guide on the Lamby site for details. Basic usage requires Docker to be installed to run the Cookiecutter software using the following command.
+⚠️ Please reference the full [Quick Start](https://lamby.cloud/docs/quick-start) guide on the Lamby site for details. Basic usage requires Docker to be installed to run the Cookiecutter software using the following command.
 
 ```shell
 $ docker run \
   --rm \
   --interactive \
   --volume "${PWD}:/var/task" \
-  ghcr.io/customink/lamby-cookiecutter \
-  "gh:customink/lamby-cookiecutter"
+  ghcr.io/rails-lambda/lamby-cookiecutter \
+  "gh:rails-lambda/lamby-cookiecutter"
 ```
 
 ## Contributing
@@ -37,6 +37,6 @@ If you have the [Visual Studio Code Dev Container](https://marketplace.visualstu
 
 ## Code of Conduct
 
-Everyone interacting in the Lamby project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/customink/lamby/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Lamby project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rails-lambda/lamby/blob/master/CODE_OF_CONDUCT.md).
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/customink/lamby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rails-lambda/lamby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

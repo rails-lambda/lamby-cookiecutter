@@ -2,7 +2,7 @@ name: "update"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 jobs:
   build:
     name: Create Release
@@ -23,8 +23,8 @@ jobs:
         uses: devcontainers/ci@v0.2
         with:
           push: always
-          imageName: ghcr.io/customink/lamby-cookiecutter-devcontainer
-          cacheFrom: ghcr.io/customink/lamby-cookiecutter-devcontainer
+          imageName: ghcr.io/rails-lambda/lamby-cookiecutter-devcontainer
+          cacheFrom: ghcr.io/rails-lambda/lamby-cookiecutter-devcontainer
           runCmd: |
             ./bin/build
       - name: Commit

@@ -3,7 +3,7 @@ FROM ruby:3.2-bullseye
 
 # Install the AWS Lambda Runtime Interface Client & Crypteia for secure SSM-backed envs.
 RUN gem install 'aws_lambda_ric'
-COPY --from=ghcr.io/customink/crypteia-extension-debian:1.1.0 /opt /opt
+COPY --from=ghcr.io/rails-lambda/crypteia-extension-debian:1.1.0 /opt /opt
 ENTRYPOINT [ "/usr/local/bundle/bin/aws_lambda_ric" ]
 ENV LD_PRELOAD=/opt/lib/libcrypteia.so
 
