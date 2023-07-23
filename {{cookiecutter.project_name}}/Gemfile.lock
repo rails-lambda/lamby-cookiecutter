@@ -100,7 +100,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     lambda-console-ruby (1.0.0)
-    lamby (5.1.0)
+    lamby (5.2.0)
       lambda-console-ruby
       rack
     lograge (0.12.0)
