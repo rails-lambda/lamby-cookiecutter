@@ -137,7 +137,7 @@ GEM
     minitest (5.20.0)
     mutex_m (0.1.2)
     mysql2 (0.5.5)
-    net-imap (0.4.2)
+    net-imap (0.4.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -154,7 +154,7 @@ GEM
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
-    racc (1.7.1)
+    racc (1.7.3)
     rack (3.0.8)
     rack-session (2.0.0)
       rack (>= 3.0.0)
