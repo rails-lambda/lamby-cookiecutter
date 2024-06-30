@@ -115,7 +115,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     lambda-console-ruby (1.0.0)
-    lamby (5.2.0)
+    lamby (5.2.1)
       lambda-console-ruby
       rack
     lograge (0.14.0)
@@ -134,7 +134,7 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.24.0)
+    minitest (5.24.1)
     mutex_m (0.2.0)
     mysql2 (0.5.6)
     net-imap (0.4.14)
@@ -200,7 +200,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    rexml (3.3.0)
+    rexml (3.3.1)
       strscan
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
