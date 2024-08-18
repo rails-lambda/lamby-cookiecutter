@@ -131,7 +131,7 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.1)
     mysql2 (0.5.6)
     net-imap (0.4.14)
       date
@@ -196,7 +196,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    rexml (3.3.4)
+    rexml (3.3.5)
       strscan
     rubyzip (2.3.2)
     securerandom (0.3.1)
@@ -211,7 +211,7 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    stimulus-rails (1.3.3)
+    stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
