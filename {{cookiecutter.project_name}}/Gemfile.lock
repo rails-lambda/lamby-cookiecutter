@@ -114,7 +114,7 @@ GEM
     lamby (6.0.1)
       lambda-console-ruby
       rack (>= 3.0.0)
-    logger (1.6.0)
+    logger (1.6.1)
     lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -133,7 +133,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     mysql2 (0.5.6)
-    net-imap (0.4.15)
+    net-imap (0.4.16)
       date
       net-protocol
     net-pop (0.1.2)
@@ -192,12 +192,11 @@ GEM
     rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    reline (0.5.9)
+    reline (0.5.10)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.7)
     rubyzip (2.3.2)
     securerandom (0.3.1)
     selenium-webdriver (4.10.0)
@@ -214,7 +213,6 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.1)
-    strscan (3.1.0)
     thor (1.3.2)
     timeout (0.4.1)
     turbo-rails (2.0.6)
@@ -240,7 +238,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.17)
+    zeitwerk (2.6.18)
 
 PLATFORMS
   aarch64-linux
