@@ -36,7 +36,7 @@ jobs:
           bundler-cache: true
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+        run: bin/importmap audit # TODO: Create bin/importmap
 
   lint:
     runs-on: ubuntu-latest
