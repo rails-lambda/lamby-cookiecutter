@@ -5,4 +5,4 @@
 !.env.development
 !.env.test
 /vendor/bundle
-.ruby-version
+#.ruby-version # This is referenced in .github/workflows/ci.yml
